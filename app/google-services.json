@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "256787709117",
+    "project_id": "tm470-computing-project",
+    "storage_bucket": "tm470-computing-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256787709117:android:68fbb3eb75d68f596acbd4",
+        "android_client_info": {
+          "package_name": "com.craigcorstorphine.tm470_computing_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256787709117-kbjq2cvg0fpem3b662gs86383lm93klj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-NDYao_0e8dWzTaNFF87dflwFAVF3jSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256787709117-kbjq2cvg0fpem3b662gs86383lm93klj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

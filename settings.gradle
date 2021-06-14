@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "TM470_Computing_project"
