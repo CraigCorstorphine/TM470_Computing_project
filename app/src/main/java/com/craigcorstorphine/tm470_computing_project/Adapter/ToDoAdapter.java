@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.craigcorstorphine.tm470_computing_project.AddNewTask;
-import com.craigcorstorphine.tm470_computing_project.MainActivity;
+import com.craigcorstorphine.tm470_computing_project.MainToDoActivity;
 import com.craigcorstorphine.tm470_computing_project.Model.ToDoModel;
 import com.craigcorstorphine.tm470_computing_project.R;
 import com.craigcorstorphine.tm470_computing_project.Utils.DatabaseHandler;
@@ -23,9 +23,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     private List<ToDoModel> todoList;
     private DatabaseHandler db;
-    private MainActivity activity;
+    private MainToDoActivity activity;
 
-    public ToDoAdapter(DatabaseHandler db, MainActivity activity) {
+    public ToDoAdapter(DatabaseHandler db, MainToDoActivity activity) {
         this.db = db;
         this.activity = activity;
     }
