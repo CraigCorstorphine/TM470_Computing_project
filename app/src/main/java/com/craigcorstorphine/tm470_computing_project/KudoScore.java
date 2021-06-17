@@ -17,7 +17,7 @@ public class KudoScore extends AppCompatActivity {
 
         kudos = 0;
 
-        TextView numberKudo = findViewById(R.id.editTextNumber);
+        TextView numberKudo = this.findViewById(R.id.editTextNumber);
         numberKudo.setText(kudos);
     }
 
