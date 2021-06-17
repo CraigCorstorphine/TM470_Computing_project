@@ -12,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
 
-    EditText et_username, et_password, et_cpassword;
-    Button btn_register, btn_login;
+    EditText editTextUserNaem, editTextPassword, EditTextPassword2;
+    Button buttonReg, buttonLog;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +23,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         databaseHelper = new DatabaseHelper(this);
-        et_username = (EditText)findViewById(R.id.et_username);
-        et_password = (EditText)findViewById(R.id.et_password);
-        et_cpassword = (EditText)findViewById(R.id.et_cpassword);
-        btn_register = (Button)findViewById(R.id.btn_register);
-        btn_login = (Button)findViewById(R.id.btn_login);
+        editTextUserNaem = findViewById(R.id.et_username);
+        editTextPassword = findViewById(R.id.et_password);
+        EditTextPassword2 = findViewById(R.id.et_cpassword);
+        buttonReg = findViewById(R.id.btn_register);
+        buttonLog = findViewById(R.id.btn_login);
 
 
-        btn_login.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+        buttonLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Login.class);
@@ -36,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_register.setOnClickListener(new View.OnClickListener() {
+        buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = et_username.getText().toString();
-                String password = et_password.getText().toString();
-                String confirm_password = et_cpassword.getText().toString();
+                String username = editTextUserNaem.getText().toString();
+                String password = editTextPassword.getText().toString();
+                String confirm_password = EditTextPassword2.getText().toString();
 
                 if(username.equals("") || password.equals("") || confirm_password.equals("")){
                     Toast.makeText(getApplicationContext(), "Fields Required", Toast.LENGTH_SHORT).show();
@@ -52,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
                             Boolean insert = databaseHelper.Insert(username, password);
                             if(insert == true){
                                 Toast.makeText(getApplicationContext(), "Registered", Toast.LENGTH_SHORT).show();
-                                et_username.setText("");
-                                et_password.setText("");
-                                et_cpassword.setText("");
+                                editTextUserNaem.setText("");
+                                editTextPassword.setText("");
+                                EditTextPassword2.setText("");
                             }
                         }else{
                             Toast.makeText(getApplicationContext(), "Username already taken", Toast.LENGTH_SHORT).show();

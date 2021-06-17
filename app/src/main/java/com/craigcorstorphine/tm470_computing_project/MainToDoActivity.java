@@ -1,8 +1,13 @@
 package com.craigcorstorphine.tm470_computing_project;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -28,11 +33,20 @@ public class MainToDoActivity extends AppCompatActivity implements DialogCloseLi
 
     private List<ToDoModel> taskList;
 
+    private int kudos;
+    private Button inc, dec;
+    TextView tV;
+    private int count;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_list);
         Objects.requireNonNull(getSupportActionBar()).hide();
+
+
 
         db = new DatabaseHandler(this);
         db.openDatabase();
@@ -59,6 +73,48 @@ public class MainToDoActivity extends AppCompatActivity implements DialogCloseLi
                 AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
             }
         });
+
+        inc = findViewById(R.id.increment); dec = findViewById(R.id.decrement);
+        tV = findViewById(R.id.textView2);
+
+        inc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferencesGet = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+                int setting = sharedPreferencesGet.getInt("id", 0);
+                count++;
+                tV.setText(count +" Kudos!");
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("id", count);
+                editor.apply();
+            }
+        });
+        dec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferencesGet = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+                int setting = sharedPreferencesGet.getInt("id", 0);
+                count--;
+                tV.setText(count + "Kudos!");
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("id", count);
+                editor.apply();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override
@@ -68,4 +124,5 @@ public class MainToDoActivity extends AppCompatActivity implements DialogCloseLi
         tasksAdapter.setTasks(taskList);
         tasksAdapter.notifyDataSetChanged();
     }
+
 }

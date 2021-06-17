@@ -17,7 +17,7 @@ import com.craigcorstorphine.tm470_computing_project.Adapter.ToDoAdapter;
 
 public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
-    private ToDoAdapter adapter;
+    private final ToDoAdapter adapter;
 
     public RecyclerItemTouchHelper(ToDoAdapter adapter) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
@@ -34,24 +34,28 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
     public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
         final int position = viewHolder.getAdapterPosition();
         if (direction == ItemTouchHelper.LEFT) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(adapter.getContext());
+            AlertDialog.Builder builder = new AlertDialog.Builder(adapter.getContext(), R.style.MyDialogTheme);
             builder.setTitle("Delete Task");
             builder.setMessage("Are you sure you want to delete this Task?");
+
             builder.setPositiveButton("Confirm",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            adapter.deleteItem(position);
-                        }
-                    });
+
+
+                    (dialog, which) -> adapter.deleteItem(position));
             builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     adapter.notifyItemChanged(viewHolder.getAdapterPosition());
                 }
             });
+
             AlertDialog dialog = builder.create();
+
+
+
             dialog.show();
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
         } else {
             adapter.editItem(position);
         }

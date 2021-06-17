@@ -23,9 +23,9 @@ public class MathQuiz extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private TextView mLoadingText;
 
-    private int mProgressStatus = 0;
+    private final int mProgressStatus = 0;
 
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
 
     int value3;
     int answer;
@@ -43,7 +43,7 @@ public class MathQuiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.math_quiz);
         setNumber();
-        progressBar = (ProgressBar) findViewById(R.id.answerProgress);
+        progressBar = findViewById(R.id.answerProgress);
         progressBar.setMax(10);
         progressBar.setProgress(0);
 
@@ -161,6 +161,7 @@ public class MathQuiz extends AppCompatActivity {
     }
     private void endGame() {
 
+
         // Present an alert dialog if we reach the end.
         if(score == 10) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyDialogTheme);
@@ -185,6 +186,8 @@ public class MathQuiz extends AppCompatActivity {
                 alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.black));
             });
             alert.show();
+
+
         }
 
 

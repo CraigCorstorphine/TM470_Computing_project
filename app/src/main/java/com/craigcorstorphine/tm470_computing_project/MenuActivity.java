@@ -14,15 +14,16 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
-        Button taskButton = (Button) findViewById(R.id.TaskList);
-        Button mathButton = (Button) findViewById(R.id.button2);
-        Button otherButton = (Button) findViewById(R.id.button3);
+        Button taskButton = findViewById(R.id.TaskList);
+        Button mathButton = findViewById(R.id.button2);
+        Button otherButton = findViewById(R.id.button3);
 
         taskButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v)
             {
-                Intent n = new Intent(MenuActivity.this,MainToDoActivity.class);
+                Intent n = new Intent(MenuActivity.this,
+                        MainToDoActivity.class);
                 startActivity(n);
             }
         });
@@ -31,7 +32,7 @@ public class MenuActivity extends AppCompatActivity {
 
             public void onClick(View v)
             {
-                Intent n = new Intent(MenuActivity.this,MathQuiz.class);
+                Intent n = new Intent(MenuActivity.this, MathQuiz.class);
                 startActivity(n);
             }
         });
@@ -40,7 +41,7 @@ public class MenuActivity extends AppCompatActivity {
 
             public void onClick(View v)
             {
-                Intent n = new Intent(MenuActivity.this,MenuActivity.class);
+                Intent n = new Intent(MenuActivity.this, MainToDoActivity.class);
                 startActivity(n);
             }
         });

@@ -17,13 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
-import com.craigcorstorphine.tm470_computing_project.Adapter.ToDoAdapter;
 import com.craigcorstorphine.tm470_computing_project.Model.ToDoModel;
 import com.craigcorstorphine.tm470_computing_project.Utils.DatabaseHandler;
-
-import java.util.Objects;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class AddNewTask extends BottomSheetDialogFragment {
 
@@ -57,7 +53,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        newTaskText = Objects.requireNonNull(getView()).findViewById(R.id.newTaskText);
+        newTaskText = requireView().findViewById(R.id.newTaskText);
         newTaskSaveButton = getView().findViewById(R.id.newTaskButton);
 
         boolean isUpdate = false;
@@ -69,7 +65,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
             newTaskText.setText(task);
             assert task != null;
             if(task.length()>0)
-                newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.colorPrimaryDark));
+                newTaskSaveButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark));
         }
 
         db = new DatabaseHandler(getActivity());
@@ -88,7 +84,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                 }
                 else{
                     newTaskSaveButton.setEnabled(true);
-                    newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.colorPrimaryDark));
+                    newTaskSaveButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark));
                 }
             }
 

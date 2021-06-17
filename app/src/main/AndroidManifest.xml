@@ -33,6 +33,10 @@
             android:name=".MathQuiz"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".KudoScore"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".MainActivity"
