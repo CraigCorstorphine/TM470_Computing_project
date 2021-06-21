@@ -19,6 +19,9 @@
     </string>
 
     <string name="initial_score">Score 0/13</string>
+
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>
@@ -32,6 +35,7 @@
     <string name="ten">10</string>
     <string name="X">x</string>
     <string name="plus">+</string>
+
 
 
     <string name="text_accounts">All Accounts</string>
@@ -61,5 +65,16 @@
     <string name="tasks" />
     <string name="new_task" />
     <string name="save" />
+    <string name="weekly">Weekly</string>
+    <string name="feb_2021">Feb 2021</string>
+    <string name="sun">SUN</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="wed">WED</string>
+    <string name="thur">THUR</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="new_event">New Event</string>
+    <string name="event">Event</string>
 
 </resources>

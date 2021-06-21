@@ -6,11 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelperLogin extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "login.db";
 
 
-    public DatabaseHelper(Context context) {
+    public DatabaseHelperLogin(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
@@ -30,31 +30,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("username", username);
         contentValues.put("password", password);
         long result = sqLiteDatabase.insert("user", null, contentValues);
-        if(result == -1){
-            return false;
-        }else{
-            return true;
-        }
+        return result != -1;
     }
 
     public Boolean CheckUsername(String username){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM user WHERE username=?", new String[]{username});
-        if(cursor.getCount() > 0){
-            return false;
-        }else{
-            return true;
-        }
+        return cursor.getCount() <= 0;
     }
 
     public Boolean CheckLogin(String username, String password){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM user WHERE username=? AND password=?", new String[]{username, password});
-        if(cursor.getCount() > 0){
-            return true;
-        }else{
-            return false;
-        }
+        return cursor.getCount() > 0;
     }
 
 }

@@ -23,7 +23,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent n = new Intent(MenuActivity.this,
-                        MainToDoActivity.class);
+                        MainTaskActivity.class);
                 startActivity(n);
             }
         });
@@ -41,7 +41,7 @@ public class MenuActivity extends AppCompatActivity {
 
             public void onClick(View v)
             {
-                Intent n = new Intent(MenuActivity.this, MainToDoActivity.class);
+                Intent n = new Intent(MenuActivity.this, MainActivity.class);
                 startActivity(n);
             }
         });

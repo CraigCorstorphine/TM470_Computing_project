@@ -15,25 +15,25 @@ public class Login extends AppCompatActivity {
     EditText et_lusername, et_lpassword;
     private Button button;
 
-    DatabaseHelper databaseHelper;
+    DatabaseHelperLogin mDatabaseHelperLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        databaseHelper = new DatabaseHelper(this);
+        mDatabaseHelperLogin = new DatabaseHelperLogin(this);
 
-        et_lusername = (EditText)findViewById(R.id.et_lusername);
-        et_lpassword = (EditText)findViewById(R.id.et_lpassword);
+        et_lusername = findViewById(R.id.et_lusername);
+        et_lpassword = findViewById(R.id.et_lpassword);
 
-        btn_llogin = (Button)findViewById(R.id.btn_llogin);
-        btn_lregister = (Button)findViewById(R.id.btn_lregister);
+        btn_llogin = findViewById(R.id.btn_llogin);
+        btn_lregister = findViewById(R.id.btn_lregister);
 
         btn_lregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, MainActivity.class);
+                Intent intent = new Intent(Login.this, MainActivity1.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
                 String username = et_lusername.getText().toString();
                 String password = et_lpassword.getText().toString();
 
-                Boolean checklogin = databaseHelper.CheckLogin(username, password);
+                Boolean checklogin = mDatabaseHelperLogin.CheckLogin(username, password);
                 if(checklogin == true){
                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
                     Intent I=new Intent(Login.this, MenuActivity.class);

@@ -74,7 +74,6 @@
         android:layout_toStartOf="@+id/decrement"
         android:layout_toEndOf="@+id/increment"
         android:background="#FFFFFF"
-        android:text="Kudos"
         android:textColor="#FD040404" />
 
 </RelativeLayout>

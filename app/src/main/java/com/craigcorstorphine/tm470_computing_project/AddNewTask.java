@@ -17,8 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.craigcorstorphine.tm470_computing_project.Model.ToDoModel;
-import com.craigcorstorphine.tm470_computing_project.Utils.DatabaseHandler;
+import com.craigcorstorphine.tm470_computing_project.Model.TaskModel;
+import com.craigcorstorphine.tm470_computing_project.Utils.DatabaseHelperTask;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class AddNewTask extends BottomSheetDialogFragment {
@@ -27,7 +27,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
     private EditText newTaskText;
     private Button newTaskSaveButton;
 
-    private DatabaseHandler db;
+    private DatabaseHelperTask db;
 
     public static AddNewTask newInstance(){
         return new AddNewTask();
@@ -68,7 +68,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                 newTaskSaveButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark));
         }
 
-        db = new DatabaseHandler(getActivity());
+        db = new DatabaseHelperTask(getActivity());
         db.openDatabase();
 
         newTaskText.addTextChangedListener(new TextWatcher() {
@@ -102,7 +102,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                     db.updateTask(bundle.getInt("id"), text);
                 }
                 else {
-                    ToDoModel task = new ToDoModel();
+                    TaskModel task = new TaskModel();
                     task.setTask(text);
                     task.setStatus(0);
                     db.insertTask(task);
