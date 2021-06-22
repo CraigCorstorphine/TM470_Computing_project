@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class MainTaskActivity extends AppCompatActivity implements DialogCloseListner{
+public class TaskActivity extends AppCompatActivity implements DialogCloseListner{
 
     private DatabaseHelperTask db;
 
@@ -60,7 +60,7 @@ public class MainTaskActivity extends AppCompatActivity implements DialogCloseLi
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter = new TaskAdapter(db, MainTaskActivity.this);
+        tasksAdapter = new TaskAdapter(db, TaskActivity.this);
         tasksRecyclerView.setAdapter(tasksAdapter);
 
         ItemTouchHelper itemTouchHelper = new

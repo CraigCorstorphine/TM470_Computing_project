@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MenuActivity extends AppCompatActivity {
+public class Menu extends AppCompatActivity {
 
 
     @Override
@@ -22,8 +22,8 @@ public class MenuActivity extends AppCompatActivity {
 
             public void onClick(View v)
             {
-                Intent n = new Intent(MenuActivity.this,
-                        MainTaskActivity.class);
+                Intent n = new Intent(Menu.this,
+                        TaskActivity.class);
                 startActivity(n);
             }
         });
@@ -32,7 +32,7 @@ public class MenuActivity extends AppCompatActivity {
 
             public void onClick(View v)
             {
-                Intent n = new Intent(MenuActivity.this, MathQuiz.class);
+                Intent n = new Intent(Menu.this, MathQuiz.class);
                 startActivity(n);
             }
         });
@@ -41,7 +41,7 @@ public class MenuActivity extends AppCompatActivity {
 
             public void onClick(View v)
             {
-                Intent n = new Intent(MenuActivity.this, MainActivity.class);
+                Intent n = new Intent(Menu.this, CalendarActivity.class);
                 startActivity(n);
             }
         });

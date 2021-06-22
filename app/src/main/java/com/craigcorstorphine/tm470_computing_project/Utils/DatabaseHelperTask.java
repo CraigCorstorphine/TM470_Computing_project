@@ -15,7 +15,8 @@ public class DatabaseHelperTask extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
     private static final String NAME = "toDoListDatabase";
-    private static final String TASK_TABLE = "todo";
+    private static final String TASK_TABLE = "todo" +
+            "";
     private static final String ID = "id";
     private static final String TASK = "task";
     private static final String STATUS = "status";

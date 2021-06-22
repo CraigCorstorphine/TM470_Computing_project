@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.craigcorstorphine.tm470_computing_project.AddNewTask;
-import com.craigcorstorphine.tm470_computing_project.MainTaskActivity;
+import com.craigcorstorphine.tm470_computing_project.TaskActivity;
 import com.craigcorstorphine.tm470_computing_project.Model.TaskModel;
 import com.craigcorstorphine.tm470_computing_project.R;
 import com.craigcorstorphine.tm470_computing_project.Utils.DatabaseHelperTask;
@@ -23,9 +23,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     private List<TaskModel> taskList;
     private final DatabaseHelperTask db;
-    private final MainTaskActivity activity;
+    private final TaskActivity activity;
 
-    public TaskAdapter(DatabaseHelperTask db, MainTaskActivity activity) {
+    public TaskAdapter(DatabaseHelperTask db, TaskActivity activity) {
         this.db = db;
         this.activity = activity;
     }

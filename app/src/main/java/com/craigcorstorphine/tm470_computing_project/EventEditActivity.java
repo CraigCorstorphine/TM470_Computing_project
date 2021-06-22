@@ -1,5 +1,6 @@
 package com.craigcorstorphine.tm470_computing_project;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class EventEditActivity extends AppCompatActivity
 
     private LocalTime time;
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState)

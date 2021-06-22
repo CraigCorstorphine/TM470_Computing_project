@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name=".Menu"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainTaskActivity"
+            android:name=".TaskActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
@@ -34,7 +34,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".CalendarActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
@@ -48,7 +48,7 @@
 
 
         <activity
-            android:name=".MainActivity1"
+            android:name=".MainActivity"
             android:configChanges="orientation"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">

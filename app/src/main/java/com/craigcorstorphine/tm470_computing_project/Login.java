@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
         btn_lregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, MainActivity1.class);
+                Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
                 Boolean checklogin = mDatabaseHelperLogin.CheckLogin(username, password);
                 if(checklogin == true){
                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent I=new Intent(Login.this, MenuActivity.class);
+                    Intent I=new Intent(Login.this, Menu.class);
                     startActivity(I);
                 }else{
                     Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
